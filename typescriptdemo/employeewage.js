@@ -13,3 +13,20 @@ console.log("Employee fulltime wage is", empwage);
 //uc3 employee wage part time
 var empwage = constants_1.employee.parttime * constants_1.employee.wageperhr;
 console.log("Employee parttime wage is", empwage);
+//uc4 switch case
+var empwage = 0;
+var empcheck = Math.floor(Math.random() * 10) % 3;
+var emphr = 0;
+switch (empcheck) {
+    case 0:
+        emphr = constants_1.employee.fulltime; //fulltime
+        break;
+    case 1:
+        emphr = constants_1.employee.parttime; //partime
+        break;
+    default:
+        emphr = 0;
+        break;
+}
+empwage += emphr * constants_1.employee.wageperhr; //time * wage per hr
+console.log("Employee wage is", empwage);
