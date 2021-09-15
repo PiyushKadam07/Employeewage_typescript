@@ -11,6 +11,7 @@ exports.employee = {
     fulltime: 8,
     parttime: 4,
     days: 20,
+    time: 160,
     wageperhr: 20,
     is_Absent: 0
 };

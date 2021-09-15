@@ -51,3 +51,26 @@ while (day < constants_1.employee.days) {
     empwage += emphr_1 * constants_1.employee.wageperhr; //time * wage per hr
 }
 console.log("Employee monthly wage is", empwage);
+//uc6 max working hrs
+var empwage = 0;
+var time = 0;
+var day = 0;
+while (time <= constants_1.employee.time && day < constants_1.employee.days) {
+    var empcheck_2 = Math.floor(Math.random() * 10) % 3;
+    var emphr_2 = 0;
+    switch (empcheck_2) {
+        case 0:
+            emphr_2 = constants_1.employee.fulltime; //fulltime
+            break;
+        case 1:
+            emphr_2 = constants_1.employee.parttime; //partime
+            break;
+        default:
+            emphr_2 = 0;
+            break;
+    }
+    day++;
+    time += emphr_2;
+    empwage += emphr_2 * constants_1.employee.wageperhr; //time * wage per hr
+}
+console.log("DAY:", day, "EmpHr:", time, "EmpWage:", empwage);
