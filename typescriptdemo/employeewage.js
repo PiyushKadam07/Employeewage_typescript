@@ -30,3 +30,24 @@ switch (empcheck) {
 }
 empwage += emphr * constants_1.employee.wageperhr; //time * wage per hr
 console.log("Employee wage is", empwage);
+//uc5 employee monthly wage
+var empwage = 0;
+var day = 0;
+while (day < constants_1.employee.days) {
+    var empcheck_1 = Math.floor(Math.random() * 10) % 3;
+    var emphr_1 = 0;
+    switch (empcheck_1) {
+        case 0:
+            emphr_1 = constants_1.employee.fulltime; //fulltime
+            break;
+        case 1:
+            emphr_1 = constants_1.employee.parttime; //partime
+            break;
+        default:
+            emphr_1 = 0;
+            break;
+    }
+    day++;
+    empwage += emphr_1 * constants_1.employee.wageperhr; //time * wage per hr
+}
+console.log("Employee monthly wage is", empwage);

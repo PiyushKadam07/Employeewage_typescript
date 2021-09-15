@@ -10,6 +10,7 @@ exports.employee = void 0;
 exports.employee = {
     fulltime: 8,
     parttime: 4,
+    days: 20,
     wageperhr: 20,
     is_Absent: 0
 };

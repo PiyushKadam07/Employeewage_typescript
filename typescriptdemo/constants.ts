@@ -8,6 +8,7 @@
 interface Employee {
     fulltime: number;
     parttime: number;
+    days: number;
     wageperhr: number;
     is_Absent: number;
   }
@@ -15,6 +16,7 @@ interface Employee {
 export const employee = {
     fulltime: 8,
     parttime: 4,
+    days: 20,
     wageperhr: 20,
     is_Absent: 0
 }
