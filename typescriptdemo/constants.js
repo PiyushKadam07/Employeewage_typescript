@@ -9,8 +9,7 @@ exports.__esModule = true;
 exports.employee = void 0;
 exports.employee = {
     fulltime: 8,
+    parttime: 4,
     wageperhr: 20,
     is_Absent: 0
 };
-// export = {}
-// export = {fulltime, parttime, days, time, wageperhr, is_Absent};
