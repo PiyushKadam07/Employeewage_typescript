@@ -1,6 +1,6 @@
 import { employee } from './constants';  
 
-// uc7 using class
+//uc7 using class
 class Employee {
 
     constructor() {
@@ -8,14 +8,14 @@ class Employee {
         console.log("Welcome to Employee Wage computation");
     }
 
-    employeecheck() {
+    employeecheck(): void {
         //uc1 check user is present or not
         var emp_check = Math.floor(Math.random() * 10) % 2;
         var check_attendance = ( emp_check == employee.is_Absent ? 'Employee is absent' : 'Employee is present' );
         console.log(check_attendance);
     }
 
-    employeewage() {
+    employeewage(): void {
         // //uc2 employee wage full time
         // var empwage = employee.fulltime * employee.wageperhr;
         // console.log("Employee fulltime wage is",empwage);
@@ -61,6 +61,8 @@ class Employee {
 
         //uc6 max working hrs
         var empwage = 0;
+        let empWage: number[] = new Array();   //uc8 monthly wage using array
+        var empwage1 = 0;
         var time = 0;
         var day = 0;
         while( time <= employee.time && day < employee.days ) {
@@ -78,9 +80,13 @@ class Employee {
             day++;
             time += emphr;
             empwage += emphr * employee.wageperhr; //time * wage per hr
+            // empwage1 += empwage;
+            empWage.push(empwage);
         }
+        console.log("Employee wage is",empWage);
         console.log("DAY:",day,"EmpHr:",time,"EmpWage:",empwage);
-        }
+
+    }
 
 }
 

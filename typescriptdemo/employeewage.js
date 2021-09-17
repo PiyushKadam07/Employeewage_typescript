@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var constants_1 = require("./constants");
+//uc7 using class
 var Employee = /** @class */ (function () {
     function Employee() {
         //welcome message
@@ -53,6 +54,8 @@ var Employee = /** @class */ (function () {
         // console.log("Employee monthly wage is",empwage);
         //uc6 max working hrs
         var empwage = 0;
+        var empWage = new Array(); //uc8 monthly wage using array
+        var empwage1 = 0;
         var time = 0;
         var day = 0;
         while (time <= constants_1.employee.time && day < constants_1.employee.days) {
@@ -72,7 +75,10 @@ var Employee = /** @class */ (function () {
             day++;
             time += emphr;
             empwage += emphr * constants_1.employee.wageperhr; //time * wage per hr
+            // empwage1 += empwage;
+            empWage.push(empwage);
         }
+        console.log("Employee wage is", empWage);
         console.log("DAY:", day, "EmpHr:", time, "EmpWage:", empwage);
     };
     return Employee;
