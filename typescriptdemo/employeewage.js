@@ -55,7 +55,7 @@ var Employee = /** @class */ (function () {
         //uc6 max working hrs
         var empwage = 0;
         var empWage = new Array(); //uc8 monthly wage using array
-        var empwage1 = 0;
+        // var empwage1 = 0;
         var time = 0;
         var day = 0;
         while (time <= constants_1.employee.time && day < constants_1.employee.days) {
@@ -79,7 +79,28 @@ var Employee = /** @class */ (function () {
             empWage.push(empwage);
         }
         console.log("Employee wage is", empWage);
-        console.log("DAY:", day, "EmpHr:", time, "EmpWage:", empwage);
+        // console.log("DAY:",day,"EmpHr:",time,"EmpWage:",empwage);
+        // uc9 using array methods
+        var empwage1 = empWage.reduce(function (sum, current) { return sum + current; }, 0); // total Wage using Array forEach or reduce method
+        console.log("DAY:", day, "EmpHr:", time, "EmpWage:", empwage1);
+        var lengths = empWage.map(function (val, index) {
+            return { Day: index + 1, Wage: val };
+        });
+        console.log("Day along with Daily Wage", lengths);
+        var Wages = lengths.filter(function (item) { return item.Wage == 160; }); // Days when Full time wage of 160 were earned using filter function
+        console.log("Days when Full time wage of 160 were earned", Wages);
+        // let findfulltime = lengths.find( function(val, index) {         // first occurrence when Full Time Wage was earned using find function             
+        //     if ( val.Wage == 160 ) {
+        //     return index 
+        //     }
+        // })
+        // console.log("First occurrence when Full Time Wage was earned", findfulltime);
+        var checkfulltime = Wages.some(function (item) { return item.Wage == 160; }); //  Every Element of Full Time Wage is truly holding Full time wage
+        console.log("Every Element of Full Time Wage is truly holding Full time wage:", checkfulltime);
+        var checkparttime = lengths.some(function (item) { return item.Wage == 80; }); //check if there is any Part Time Wage
+        console.log("Checking if there is any Part Time Wage:", checkparttime);
+        var checkempworked = lengths.filter(function (item) { return item.Wage == 0; }); // number of days the Employee Worked  
+        console.log("Employee worked for", constants_1.employee.days - checkempworked.length, "days");
     };
     return Employee;
 }());
