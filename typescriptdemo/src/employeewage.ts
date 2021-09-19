@@ -60,9 +60,10 @@ class Employee {
         // console.log("Employee monthly wage is",empwage);
 
         //uc6 max working hrs
+        let myMap = new Map();      // uc10 employee wage using map
         var empwage = 0;
         let empWage: number[] = new Array();   //uc8 monthly wage using array
-        // var empwage1 = 0;
+        var empwage1 = 0;
         var time = 0;
         var day = 0;
         while( time <= employee.time && day < employee.days ) {
@@ -80,15 +81,18 @@ class Employee {
             day++;
             time += emphr;
             empwage += emphr * employee.wageperhr; //time * wage per hr
-            // empwage1 += empwage;
+            empwage1 += empwage;
             empWage.push(empwage);
+            myMap.set(day, empwage);        //Store the Day and the Daily Wage using map() 
         }
-        console.log("Employee wage is",empWage);
+        myMap.set("Total wage is",empwage1);     // total wage using map()
+        console.log("Employee wage using map is",myMap);
+        // console.log("Employee wage is",empWage);
         // console.log("DAY:",day,"EmpHr:",time,"EmpWage:",empwage);
 
         // uc9 using array methods
-        let empwage1 = empWage.reduce((sum, current) => sum + current, 0);   // total Wage using Array forEach or reduce method
-        console.log("DAY:", day, "EmpHr:", time, "EmpWage:", empwage1);
+        let empWage1 = empWage.reduce((sum, current) => sum + current, 0);   // total Wage using Array forEach or reduce method
+        console.log("DAY:", day, "EmpHr:", time, "EmpWage:", empWage1);
 
         let lengths = empWage.map( function(val, index) {                    // Day along with Daily Wage using Array map helper function            
             return {Day:index + 1, Wage:val};
@@ -98,12 +102,12 @@ class Employee {
         let Wages = lengths.filter(item => item.Wage == 160);  // Days when Full time wage of 160 were earned using filter function
         console.log("Days when Full time wage of 160 were earned", Wages);
 
-        // let findfulltime = lengths.find( function(val, index) {         // first occurrence when Full Time Wage was earned using find function             
-        //     if ( val.Wage == 160 ) {
-        //     return index 
-        //     }
-        // })
-        // console.log("First occurrence when Full Time Wage was earned", findfulltime);
+        let findfulltime = lengths.find( function(val, index) {         // first occurrence when Full Time Wage was earned using find function             
+            if ( val.Wage == 160 ) {
+            return index;
+            }
+        })
+        console.log("First occurrence when Full Time Wage was earned", findfulltime);
 
         let checkfulltime = Wages.some(item => item.Wage == 160)     //  Every Element of Full Time Wage is truly holding Full time wage
         console.log("Every Element of Full Time Wage is truly holding Full time wage:", checkfulltime);
@@ -114,9 +118,9 @@ class Employee {
         let checkempworked = lengths.filter(item => item.Wage == 0);      // number of days the Employee Worked  
         console.log("Employee worked for", employee.days-checkempworked.length, "days"); 
     }
-
+ 
 }
 
 let emp = new Employee();
 emp.employeecheck();
-emp.employeewage(); 
+emp.employeewage();

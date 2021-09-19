@@ -1,4 +1,5 @@
 /node_modules
-tsconfig.json
 tests.ts
 tests.js
+constants.js
+employeewage.js
